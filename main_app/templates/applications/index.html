@@ -1,20 +1,37 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>Applications List</h1>
+<h1 style="color:rgba(28, 53, 94, 1);">Applications List</h1>
+<button>Add a new application</button>
 
-{% for application in applications %}
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">{{ application.id }}</span>
-        <p>Job Title: {{ application.job_title }}</p>
-        <p>Description: {{ application.description }}</p>
-        <p>Location: {{ application.location }}</p>
-        <p>Date Applied: {{ application.dateApplied }}</p>
-        <p>Date Posted: {{ application.datePosted }}</p>
-        <p>Cover Letter: {{ application.coverLetter }}</p>
-        <p>Application Status: {{application.status }}</p>
-    </div>
+<div class="col s6">
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>List</th>
+                <th>Job Title</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Date Applied</th>
+                <th>Date Posted</th>
+                <th>Cover Letter</th>
+                <th>Application Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in applications %}
+            <tr>
+                <td>{{application.id}}</td>
+                <td>{{application.job_title}}</td>
+                <td>{{application.description}}</td>
+                <td>{{application.location}}</td>
+                <td>{{application.dateApplied}}</td>
+                <td>{{application.datePosted}}</td>
+                <td>{{application.coverLetter}}</td>
+                <td>{{application.status}}</td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
 </div>
-{% endfor %}
 {% endblock%}
