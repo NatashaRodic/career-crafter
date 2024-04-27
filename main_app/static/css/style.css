@@ -1,3 +1,7 @@
 body {
-    background-color: rgba(242, 242, 242, 1);
+    background-color: rgba(241, 241, 241, 1);
+}
+
+.blue-brand {
+    color: rgba(3, 51, 78, 1);
 }
