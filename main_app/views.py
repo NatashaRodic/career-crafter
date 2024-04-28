@@ -4,7 +4,7 @@ from django.shortcuts import render
 applications = [
     {
         "job_title": "Front-end Developer",
-        "description": "Develop user-facing features using React.js and other front-end technologies",
+        "link": "",
         "id": 1,
         "location": "San Francisco, CA",
         "dateApplied": "2024-04-25",
@@ -14,7 +14,7 @@ applications = [
     },
     {
         "job_title": "Data Scientist",
-        "description": "Analyze large datasets to provide insights and develop machine learning models",
+        "link": "",
         "id": 2,
         "location": "New York, NY",
         "dateApplied": "2024-04-24",
