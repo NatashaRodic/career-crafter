@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Application
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 # Create your views here.
