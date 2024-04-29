@@ -26,6 +26,11 @@
 <!-- New Markup Above -->
 </div>
 <div class="col s6">
+    <form action="" method="POST">
+        {% csrf_token%}
+        {{ action_form.as_p}}
+        <input type="submit" value="Add action" class="btn blue">
+    </form>
     <table class="striped">
         <thead>
             <tr>
