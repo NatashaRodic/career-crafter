@@ -25,7 +25,8 @@ def applications_detail (request, application_id):
 
 class ApplicationCreate(CreateView):
     model = Application
-    fields = '__all__'
+    fields = ['job_title', 'company', 'link', 'location', 'date', 'cover_letter_included', 'status']
+
 
 class ApplicationUpdate(UpdateView):
     model = Application

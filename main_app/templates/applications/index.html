@@ -32,7 +32,7 @@
                 <td>
                     <a href="{{application.link}}" target="_blank" rel="noopener noreferrer">Open</a>
                 </td>
-                <td>{{application.status}}</td>
+                <td>{{application.get_status_display}}</td>
             </tr>
             {% endfor%}
         </tbody>
