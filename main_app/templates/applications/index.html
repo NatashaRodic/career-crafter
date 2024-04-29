@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1 style="color:rgba(28, 53, 94, 1);">Application Tracker</h1>
-<button>Add a new application</button>
+<button><a href="{% url 'application_create' %}">Add new application</a></button>
 <div class="col s6">
     <table>
         <thead style="background-color: rgb(231, 231, 231);">

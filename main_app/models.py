@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -19,5 +20,8 @@ class Application(models.Model):
     )
 
     status = models.CharField(max_length=2, choices=STATUS, default='AP')
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'application_id': self.id})
 
 
