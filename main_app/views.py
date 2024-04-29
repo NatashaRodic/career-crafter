@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Application
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import ActionForm
 
 
 # Create your views here.
@@ -19,8 +20,10 @@ def applications_index (request):
 
 def applications_detail (request, application_id):
     application = Application.objects.get(id=application_id)
+    action_form = ActionForm()
     return render(request, 'applications/detail.html', {
-        'application': application
+        'application': application,
+        'action_form': action_form
     })
 
 class ApplicationCreate(CreateView):
