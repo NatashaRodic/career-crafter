@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content%}
-
-<h1>Add application to your List</h1>
+{% if object%}
+<h1>Something changed 🫣? Update your application status!</h1>
+{% else %}
+<h1>Add a new application</h1>
+{% endif %}
 <form action="" method="POST">
     {% csrf_token%}
     <table>

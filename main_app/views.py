@@ -26,3 +26,11 @@ def applications_detail (request, application_id):
 class ApplicationCreate(CreateView):
     model = Application
     fields = '__all__'
+
+class ApplicationUpdate(UpdateView):
+    model = Application
+    fields = ('status',)
+
+class ApplicationDelete(DeleteView):
+    model = Application
+    success_url = '/applications/'
