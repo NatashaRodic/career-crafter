@@ -10,11 +10,11 @@
             <tr>
                 <th>List</th>
                 <th>Job Title</th>
-                <th>Description</th>
+                <th>Company Name</th>
                 <th>Location</th>
                 <th>Date Applied</th>
-                <th>Date Posted</th>
                 <th>Cover Letter</th>
+                <th>Link</th>
                 <th>Application Status</th>
             </tr>
         </thead>
@@ -23,12 +23,15 @@
             <tr>
                 <td>{{application.id}}</td>
                 <td>{{application.job_title}}</td>
-                <td>{{application.description}}</td>
+                <td>{{application.company}}</td>
                 <td>{{application.location}}</td>
-                <td>{{application.dateApplied}}</td>
-                <td>{{application.datePosted}}</td>
-                <td>{{application.coverLetter}}</td>
+                <td>{{application.date}}</td>
+                <td>{{application.cover_letter_included}}</td>
+                <td>
+                    <a href="{{application.link}}" target="_blank" rel="noopener noreferrer">Open</a>
+                </td>
                 <td>{{application.status}}</td>
+
             </tr>
             {% endfor%}
         </tbody>
