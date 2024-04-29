@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Application
+from django.views.generic.edit import CreateView
 
 
 # Create your views here.
@@ -21,3 +22,7 @@ def applications_detail (request, application_id):
     return render(request, 'applications/detail.html', {
         'application': application
     })
+
+class ApplicationCreate(CreateView):
+    model = Application
+    fields = '__all__'
