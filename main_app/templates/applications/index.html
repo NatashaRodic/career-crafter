@@ -3,12 +3,12 @@
 {% block content %}
 <h1 style="color:rgba(28, 53, 94, 1);">Application Tracker</h1>
 <button>Add a new application</button>
-
 <div class="col s6">
     <table>
         <thead style="background-color: rgb(231, 231, 231);">
             <tr>
                 <th>List</th>
+                <th>More Details</th>
                 <th>Job Title</th>
                 <th>Company Name</th>
                 <th>Location</th>
@@ -20,8 +20,10 @@
         </thead>
         <tbody>
             {% for application in applications %}
+
             <tr>
                 <td>{{application.id}}</td>
+                <td><a href="{% url 'detail' application.id %}">DETAILS</a></td>
                 <td>{{application.job_title}}</td>
                 <td>{{application.company}}</td>
                 <td>{{application.location}}</td>
@@ -31,7 +33,6 @@
                     <a href="{{application.link}}" target="_blank" rel="noopener noreferrer">Open</a>
                 </td>
                 <td>{{application.status}}</td>
-
             </tr>
             {% endfor%}
         </tbody>

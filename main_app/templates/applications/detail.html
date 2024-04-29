@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1 style="color:rgba(28, 53, 94, 1);">Application {{application.id}}</h1>
+<div class="col s6">
+    <table>
+        <tbody>
+            <tr>
+                <td>{{application.job_title}}</td>
+                <td>{{application.company}}</td>
+                <td>{{application.location}}</td>
+                <td>{{application.date}}</td>
+                <td>{{application.cover_letter_included}}</td>
+                <td>
+                    <a href="{{application.link}}" target="_blank" rel="noopener noreferrer">Open</a>
+                </td>
+                <td>{{application.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock%}
