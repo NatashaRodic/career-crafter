@@ -15,3 +15,9 @@ def applications_index (request):
     return render(request, 'applications/index.html', {
         'applications': applications
     })
+
+def applications_detail (request, application_id):
+    application = Application.objects.get(id=application_id)
+    return render(request, 'applications/detail.html', {
+        'application': application
+    })
