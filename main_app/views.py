@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Application
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import ActionForm, ApplicationForm
+from .forms import ActionForm, ApplicationForm, NoteForm
 
 
 # Create your views here.
@@ -33,6 +33,15 @@ def add_action(request, application_id):
     new_action.application_id = application_id
     new_action.save()
   return redirect('detail', application_id=application_id)
+
+def add_note(request, application_id):
+    form = NoteForm(request.POST)
+    if form.is_valid():
+        new_note = form.save(commit=False)
+        new_note.application_id = application_id
+        new_note.save()
+    return redirect('detail', application_id=application_id)
+
 
 class ApplicationCreate(CreateView):
     form_class = ApplicationForm
