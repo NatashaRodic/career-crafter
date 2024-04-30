@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load material_form %}
+
 {% block content%}
 {% if object%}
 <h1>Something changed 🫣? Update your application status!</h1>
@@ -9,9 +11,22 @@
 <form action="" method="POST">
     {% csrf_token%}
     <table>
-        {{ form.as_p }}
+        {% form form=form %}{% endform %}
+        <!-- {{ form.as_p }} -->
     </table>
     <input type="submit" value="Submit" class="btn">
 </form>
+<script>
+    const dateEl = document.getElementById('id_date');
+    const selectEl = document.getElementById('id_status');
 
+    M.Datepicker.init(dateEl, {
+        format: 'yyyy-mm-dd',
+        defaultDate: new Date(),
+        setDefaultDate: true,
+        autoClose: true
+    });
+
+    M.FormSelect.init(selectEl);
+</script>
 {% endblock %}
