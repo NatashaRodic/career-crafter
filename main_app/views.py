@@ -4,6 +4,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import ActionForm, ApplicationForm, NoteForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 
 
 # Create your views here.
@@ -14,12 +18,14 @@ def home (request):
 def about (request):
     return render(request, 'about.html')
 
+@login_required
 def applications_index (request):
     applications = Application.objects.filter(user=request.user)
     return render(request, 'applications/index.html', {
         'applications': applications
     })
 
+@login_required
 def applications_detail (request, application_id):
     application = Application.objects.get(id=application_id)
     action_form = ActionForm()
@@ -27,7 +33,7 @@ def applications_detail (request, application_id):
         'application': application,
         'action_form': action_form
     })
-
+@login_required
 def add_action(request, application_id):
   form = ActionForm(request.POST)
   if form.is_valid():
@@ -36,6 +42,7 @@ def add_action(request, application_id):
     new_action.save()
   return redirect('detail', application_id=application_id)
 
+@login_required
 def add_note(request, application_id):
     form = NoteForm(request.POST)
     if form.is_valid():
@@ -45,7 +52,7 @@ def add_note(request, application_id):
     return redirect('detail', application_id=application_id)
 
 
-class ApplicationCreate(CreateView):
+class ApplicationCreate(LoginRequiredMixin, CreateView):
     form_class = ApplicationForm
     model = Application
 
@@ -54,11 +61,11 @@ class ApplicationCreate(CreateView):
         return super().form_valid(form)
 
 
-class ApplicationUpdate(UpdateView):
+class ApplicationUpdate(LoginRequiredMixin, UpdateView):
     model = Application
     fields = ('status',)
 
-class ApplicationDelete(DeleteView):
+class ApplicationDelete(LoginRequiredMixin, DeleteView):
     model = Application
     success_url = '/applications/'
 
