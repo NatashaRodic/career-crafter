@@ -22,8 +22,13 @@
                 </ul>
                 <ul class="right">
                     <li><a href="{% url 'about' %}" style="color:rgba(28, 53, 94, 1);">About</a></li>
+                    {% if user.is_authenticated %}
                     <li><a href="{% url 'index' %}" style="color:rgba(28, 53, 94, 1);">Application Tracker</a></li>
                     <li><a href="" style="color:rgba(28, 53, 94, 1);">Resume Builder</a></li>
+                    <li><a href="{% url 'logout' %}" style="color:rgba(28, 53, 94, 1);">Log Out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}" style="color:rgba(28, 53, 94, 1);">Log In</a></li>
+                    {% endif%}
                 </ul>
             </div>
         </nav>
