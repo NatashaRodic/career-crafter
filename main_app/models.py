@@ -20,6 +20,7 @@ class Application(models.Model):
     date = models.DateField('Date Applied')
     cover_letter_included = models.BooleanField(default=False)
     status = models.CharField(max_length=2, choices=STATUS, default='AP')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.get_status_display()} '
