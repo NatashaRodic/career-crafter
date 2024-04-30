@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Application
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import ActionForm
+from .forms import ActionForm, ApplicationForm
 
 
 # Create your views here.
@@ -26,9 +26,18 @@ def applications_detail (request, application_id):
         'action_form': action_form
     })
 
+def add_action(request, application_id):
+  form = ActionForm(request.POST)
+  if form.is_valid():
+    new_action = form.save(commit=False)
+    new_action.application_id = application_id
+    new_action.save()
+  return redirect('detail', application_id=application_id)
+
 class ApplicationCreate(CreateView):
+    form_class = ApplicationForm
     model = Application
-    fields = ['job_title', 'company', 'link', 'location', 'date', 'cover_letter_included', 'status']
+    # fields = ['job_title', 'company', 'link', 'location', 'date', 'cover_letter_included', 'status']
 
 
 class ApplicationUpdate(UpdateView):

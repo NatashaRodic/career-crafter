@@ -32,4 +32,7 @@ class Action(models.Model):
     action = models.CharField(max_length=100)
     application = models.ForeignKey(Application, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ('-date',)
+
 
