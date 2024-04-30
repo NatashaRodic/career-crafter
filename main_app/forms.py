@@ -1,5 +1,5 @@
 from django.forms import ModelForm, Select
-from .models import Action, Application
+from .models import Action, Application, Note
 
 class ActionForm(ModelForm):
     class Meta:
@@ -13,3 +13,8 @@ class ApplicationForm(ModelForm):
         widgets = {
             'status': Select(choices=Application.STATUS),
         }
+
+class NoteForm(ModelForm):
+    class Meta:
+        model = Note
+        fields = '__all__'
