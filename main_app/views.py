@@ -46,7 +46,10 @@ def add_note(request, application_id):
 class ApplicationCreate(CreateView):
     form_class = ApplicationForm
     model = Application
-    # fields = ['job_title', 'company', 'link', 'location', 'date', 'cover_letter_included', 'status']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class ApplicationUpdate(UpdateView):

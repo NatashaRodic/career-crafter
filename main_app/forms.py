@@ -9,7 +9,7 @@ class ActionForm(ModelForm):
 class ApplicationForm(ModelForm):
     class Meta:
         model = Application
-        fields = '__all__'
+        fields = ('job_title', 'company', 'link', 'location', 'date', 'cover_letter_included', 'status')
         widgets = {
             'status': Select(choices=Application.STATUS),
         }
