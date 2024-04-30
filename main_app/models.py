@@ -35,4 +35,9 @@ class Action(models.Model):
     class Meta:
         ordering = ('-date',)
 
+class Note(models.Model):
+    note = models.TextField(max_length=300)
+    application = models.ForeignKey(Application, on_delete=models.CASCADE)
+
+
 
