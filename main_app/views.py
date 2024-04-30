@@ -15,7 +15,7 @@ def about (request):
     return render(request, 'about.html')
 
 def applications_index (request):
-    applications = Application.objects.all()
+    applications = Application.objects.filter(user=request.user)
     return render(request, 'applications/index.html', {
         'applications': applications
     })
