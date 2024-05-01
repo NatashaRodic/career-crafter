@@ -10,6 +10,14 @@ class Skill(models.Model):
      
     def get_absolute_url(self):
         return reverse('skill_detail', kwargs={'pk': self.id})
+    
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.name
+     
+    def get_absolute_url(self):
+        return reverse('tag_detail', kwargs={'pk': self.id})
 
 class Application(models.Model):
     STATUS = (
@@ -29,6 +37,7 @@ class Application(models.Model):
     status = models.CharField(max_length=2, choices=STATUS, default='AP')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     skills = models.ManyToManyField(Skill)
+    tags = models.ManyToManyField(Tag)
 
 
     def __str__(self):
