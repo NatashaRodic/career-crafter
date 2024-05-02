@@ -1,9 +1,28 @@
 {% extends 'base.html'%}
 
 {% block content%}
-<h1 style="color:rgba(28, 53, 94, 1);">Career Crafter</h1>
-<h2 style="color:rgba(244, 197, 92, 1)">Personalized Job Application Companion</h2>
-<h4 style="color:rgba(28, 53, 94, 1);">Career Crafter is your ultimate ally in navigating the intricate landscape of job
-    applications. With a user-friendly
-    interface and a host of intuitive features, Career Crafter makes managing your job hunt a breeze.</h4>
+
+<div class="row aboutSection" style="display: flex;">
+    <div class="col s12 l6 ">
+        <img src="../static/images/person-laptop-smiling.png" alt="">
+    </div>
+    <div class="col s12 l6 aboutRightSection">
+        <div class="aboutDescp">
+            <h1>About Career Crafter </h1>
+
+            <h3>Career Crafter is a project built during General Assembly Bootcamp, crafted with Python, Django, and
+                PostgreSQL. Career Crafter app is dedicated to empowering individuals in managing their career journey
+                with ease
+                and efficiency.</h3>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: rgb(0, 69, 57);
+        background: linear-gradient(145deg, #001D18 0%, #001411 100%);
+    }
+</style>
+
 {% endblock %}

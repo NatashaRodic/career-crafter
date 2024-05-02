@@ -1,4 +1,28 @@
-{% extends 'base.html' %}
-<h1>Welcome to career crafter</h1>
-{% block content %}
-{% endblock%}
+{% extends 'base.html'%}
+
+{% block content%}
+
+<div class="row aboutSection" style="display: flex;">
+    <div class="col s12 l6 ">
+        <img src="../static/images/person-laptop-smiling.png" alt="">
+    </div>
+    <div class="col s12 l6 aboutRightSection">
+        <div class="aboutDescp">
+            <h1>Career Crafter <br> Personalized Job Application Companion</h1>
+
+            <h3>Career Crafter is your ultimate ally in navigating the intricate
+                landscape of job
+                applications. With a user-friendly
+                interface and a host of intuitive features, Career Crafter makes managing your job hunt a breeze.</h3>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: rgb(0, 69, 57);
+        background: linear-gradient(145deg, #001D18 0%, #001411 100%);
+    }
+</style>
+
+{% endblock %}

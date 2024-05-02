@@ -11,39 +11,57 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     {% include 'material/includes/material_css.html' %}
     {% include 'material/includes/material_js.html' %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header class="navbar-fixed blue-brand">
-        <nav class="grey lighten-4 blue-brand">
-            <div class="nav-wrapper ">
-                <ul class="left logo">
-                    <li><a href="/" style="color:rgba(28, 53, 94, 1);">Career Crafter</a></li>
-                </ul>
-                <ul class="right">
-                    <li><a href="{% url 'about' %}" style="color:rgba(28, 53, 94, 1);">About</a></li>
+        <nav class=" blue-brand">
+            <div class=" row  teal darken-4 nav-wrapper">
+                <div class="container">
+                    <ul class="left logo">
+                        <li><a href="/" style="color: #a3ffb1;">Career Crafter</a></li>
+                    </ul>
+                    <ul class=" right">
+                        <li><a class="yellow-text text-lighten-5" href="{% url 'about' %}" ">About</a></li>
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'index' %}" style="color:rgba(28, 53, 94, 1);">Application Tracker</a></li>
-                    <!-- <li><a href="" style="color:rgba(28, 53, 94, 1);">Resume Builder</a></li> -->
-                    <li><a href="{% url 'skills_create' %}" style="color:rgba(28, 53, 94, 1);">Create a skill</a></li>
-                    <li><a href="{% url 'skills_index' %}" style="color:rgba(28, 53, 94, 1);">Your Skills</a></li>
-                    <li><a href="{% url 'tags_create' %}" style="color:rgba(28, 53, 94, 1);">Create a Tag</a></li>
-                    <li><a href="{% url 'logout' %}" style="color:rgba(28, 53, 94, 1);">Log Out</a></li>
+                    <li><a class=" yellow-text text-lighten-5" href=" {% url 'index' %}" ">Application Tracker</a>
+                    </li>
+                    <!-- <li><a href=""  ">Resume Builder</a></li> -->
+                        <li><a class="yellow-text text-lighten-5" href="{% url 'skills_create' %}" ">Create a
+                            skill</a></li>
+                    <li><a  class=" yellow-text text-lighten-5" href=" {% url 'skills_index' %}" ">Your Skills</a>
+                    </li>
+                    <li><a class=" yellow-text text-lighten-5" href=" {% url 'tags_create' %}" ">Create a Tag</a>
+                    </li>
+                    <li><a class=" yellow-text text-lighten-5" href=" {% url 'logout' %}" ">Log Out</a></li>
                     {% else %}
-                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                    <li><a href="{% url 'login' %}" style="color:rgba(28, 53, 94, 1);">Log In</a></li>
+                    <li><a class=" yellow-text text-lighten-5" href=" {% url 'signup' %}">Sign Up</a></li>
+                        <li><a class="yellow-text text-lighten-5" href="{% url 'login' %}" ">Log In</a></li>
                     {% endif%}
                 </ul>
+               </div>
             </div>
         </nav>
     </header>
-    <main class="container">
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <main class="" style=" max-width: 1200px; margin:0 auto;">
+                                {% block content %}
+                                {% endblock %}
+                                </main>
+                                <footer>
+                                </footer>
+                                <script src="
+                                https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+                                </script>
+                                <style>
+                                    .teal.darken-4 {
+                                        background-color: #001d18dc !important;
+                                    }
+                                </style>
 </body>
 
 </html>
