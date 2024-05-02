@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Application
+from .models import Application, Skill, Tag
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from .forms import ActionForm, ApplicationForm, NoteForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -28,11 +29,28 @@ def applications_index (request):
 @login_required
 def applications_detail (request, application_id):
     application = Application.objects.get(id=application_id)
+    id_list = application.skills.all().values_list('id')
+    skills_that_application_doesnt_have = Skill.objects.exclude(id__in = id_list)
+    id_list2 = application.tags.all().values_list('id')
+    tags_that_application_doesnt_have = Tag.objects.exclude(id__in = id_list2)
+
+
     action_form = ActionForm()
     return render(request, 'applications/detail.html', {
         'application': application,
-        'action_form': action_form
+        'action_form': action_form,
+        'skills': skills_that_application_doesnt_have,
+        'tags': tags_that_application_doesnt_have
     })
+
+def assoc_skill(request, application_id, skill_id):
+  Application.objects.get(id=application_id).skills.add(skill_id)
+  return redirect('detail', application_id=application_id)
+
+def assoc_tag(request, application_id, tag_id):
+  Application.objects.get(id=application_id).tags.add(tag_id)
+  return redirect('detail', application_id=application_id)
+
 @login_required
 def add_action(request, application_id):
   form = ActionForm(request.POST)
@@ -83,3 +101,23 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+class SkillList(ListView):
+  model = Skill
+
+class SkillCreate(CreateView):
+  model = Skill
+  fields = '__all__'
+  success_url = '/applications/'
+
+class SkillDelete(DeleteView):
+  model = Skill
+  success_url = '/skills'
+
+class SkillDetail(DetailView):
+  model = Skill
+
+class TagCreate(CreateView):
+  model = Tag
+  fields = '__all__'
+  success_url = '/applications/'
