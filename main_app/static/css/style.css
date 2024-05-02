@@ -44,3 +44,13 @@ img {
     align-content: center;
     align-items: center;
 }
+
+.pageTitle {
+    font-size: 26px;
+    color: #004539;
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 30px;
+}
