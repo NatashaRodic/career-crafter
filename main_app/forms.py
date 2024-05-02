@@ -1,5 +1,7 @@
 from django.forms import ModelForm, Select
 from .models import Action, Application, Note
+from django import forms
+
 
 class ActionForm(ModelForm):
     class Meta:
@@ -14,7 +16,11 @@ class ApplicationForm(ModelForm):
             'status': Select(choices=Application.STATUS),
         }
 
-class NoteForm(ModelForm):
+
+class NoteForm(forms.ModelForm):
     class Meta:
         model = Note
-        fields = '__all__'
+        fields = ['note']
+        widgets = {
+            'note': forms.Textarea(attrs={'class': 'materialize-textarea'}) 
+        }

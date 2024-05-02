@@ -18,5 +18,4 @@ urlpatterns = [
     path('applications/<int:application_id>/assoc_skill/<int:skill_id>/', views.assoc_skill, name='assoc_skill'),
     path('tags/create', views.TagCreate.as_view(), name='tags_create'),
     path('applications/<int:application_id>/assoc_tag/<int:tag_id>/', views.assoc_tag, name='assoc_tag'),
-
 ]
