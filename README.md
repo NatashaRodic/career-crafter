@@ -49,12 +49,6 @@ This app is created with the goal to provide detailed tracking of applications a
 
 ## ![my-skills](main_app/static/images/my_skills_page.png)
 
-## 📊 ERD
-
-<details>
-
-![ERD](main_app/static/images/erd.png)
-
 ## 💻 Technologies used
 
 - Python
@@ -73,6 +67,10 @@ This app is created with the goal to provide detailed tracking of applications a
 #### [Career Crafter - Live](https://careercrafter-8f9c4d8716ca.herokuapp.com/) - Link to the deployed app on Heroku.
 
 #### [Trello Board](https://trello.com/invite/b/q9HOJpVY/ATTIca4b15f8b44d5f7eecf65a0326d30073AD3F80DB/career-crafter) - Link to the Trello board with the user stories, ERD and wireframes.
+
+## 📊 ERD
+
+![ERD](main_app/static/images/erd.png)
 
 ## Next Steps
 
