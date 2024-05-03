@@ -39,11 +39,11 @@ This app is created with the goal to provide detailed tracking of applications a
 
 ### Landing Page
 
-![logged-out](public/images/landing-page.png)
+![home-page](main_app/static/images/home_page.png)
 
-### Trip Details
+### Application Tracker
 
-![logged-in](public/images/trip-details.png)
+![main-page](main_app/static/images/main_page.png)
 
 ---
 
@@ -61,7 +61,7 @@ This app is created with the goal to provide detailed tracking of applications a
 
 ## Getting Started
 
-#### [Career Crafter - Live]() - Link to the deployed app on Heroku.
+#### [Career Crafter - Live](https://careercrafter-8f9c4d8716ca.herokuapp.com/) - Link to the deployed app on Heroku.
 
 #### [Trello Board](https://trello.com/invite/b/q9HOJpVY/ATTIca4b15f8b44d5f7eecf65a0326d30073AD3F80DB/career-crafter) - Link to the Trello board with the user stories, ERD and wireframes.
 
