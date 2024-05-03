@@ -11,8 +11,10 @@
 
             </div>
             <div class="card-action">
-                <a href="{% url 'skill_update' skill.id %}">Edit</a>
-                <a href="{% url 'skill_delete' skill.id %}">Delete</a>
+                <a style="margin:0px 10px 30px 0px" class="waves-effect waves-light  teal darken-4 btn-large"
+                    href="{% url 'skill_update' skill.id %}">Edit</a>
+                <a style="margin:0px 10px 30px 0px" class="waves-effect waves-light  teal darken-4 btn-large"
+                    href="{% url 'skill_delete' skill.id %}">Delete</a>
             </div>
         </div>
     </div>

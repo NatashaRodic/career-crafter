@@ -54,3 +54,35 @@ img {
     font-style: normal;
     margin-bottom: 30px;
 }
+
+
+.skillBox {
+    font-size: 24px;
+    font-weight: 300;
+    color: #a3ffb1;
+    padding: 20px 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    display: inline-block;
+    margin: 20px;
+}
+
+.skillBox:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.skillBox2 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #a3ffb1;
+    padding: 20px 50px;
+    background-color: #002710;
+    border-radius: 100px;
+    display: inline-block;
+    margin: 20px;
+}
+
+.skillBox2:hover {
+    background-color: #002710;
+}

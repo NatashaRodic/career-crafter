@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1 style="color:rgba(28, 53, 94, 1);">Application {{application.id}}</h1>
+<h2 class="pageTitle">Application {{application.id}}</h2>
 <div class="col s6">
     <table>
         <tbody>
@@ -77,12 +77,8 @@
     <div class="col s6">
         <h3>Skills related to this application</h3>
         {% for skill in application.skills.all %}
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">
-                    {{skill.name}}
-                </span>
-            </div>
+        <div class="skillBox2">
+            {{skill.name}}
         </div>
         {% endfor%}
     </div>

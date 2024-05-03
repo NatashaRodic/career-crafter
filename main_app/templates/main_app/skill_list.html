@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2 class="pageTitle">Skill list</h2>
+<h2 class="pageTitle" style="color:white">Skill list</h2>
 
 {% for skill in skill_list %}
-<a href="{% url 'skills_detail' skill.id %}">
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ skill.name }}</span>
-        </div>
-    </div>
-</a>
+<div class="skillBox">
+    {{ skill.name }}
+</div>
 {% endfor %}
+
+<style>
+    body {
+        background: rgb(0, 69, 57);
+        background: linear-gradient(145deg, #001D18 0%, #001411 100%);
+    }
+</style>
 
 {% endblock %}
