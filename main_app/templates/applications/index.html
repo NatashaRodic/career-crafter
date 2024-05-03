@@ -8,8 +8,8 @@
     application <i class="material-icons right">assignment</i></a>
 
 <div class="col s6">
-    <table class="striped highlight">
-        <thead style="background-color: rgb(231, 231, 231);">
+    <table class="striped highlight table-responsive">
+        <thead style="background-color: rgb(176, 204, 193); border-bottom: 2px solid #004539;">
             <tr>
 
                 <th>Job Title</th>
@@ -26,16 +26,23 @@
 
             <tr>
 
-                <td id="{{application.id}}"><a href="{% url 'detail' application.id %}">{{application.job_title}}</a>
+                <td id="{{application.id}}"><a
+                        href="{% url 'detail' application.id %}"><b>{{application.job_title}}</b></a>
                 </td>
                 <td>{{application.company}}</td>
                 <td>{{application.location}}</td>
                 <td>{{application.date}}</td>
-                <td>{{application.cover_letter_included}}</td>
+                <td>
+                    {% if application.cover_letter_included %}
+                    Included ✉️
+                    {% endif %}
+                </td>
                 <td>
                     <a href="{{application.link}}" target="_blank" rel="noopener noreferrer">Open</a>
                 </td>
-                <td>{{application.get_status_display}}</td>
+                <td>
+                    {{application.get_status_display}}
+                </td>
             </tr>
             {% endfor%}
         </tbody>

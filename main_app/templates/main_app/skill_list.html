@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Skill List</h1>
+<h2 class="pageTitle">Skill list</h2>
 
 {% for skill in skill_list %}
 <a href="{% url 'skills_detail' skill.id %}">
