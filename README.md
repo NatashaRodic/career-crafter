@@ -27,15 +27,15 @@ On the details page, users are able to add more features to each application suc
 
 This app is created with the goal to provide detailed tracking of applications and also incorporate extra features where users can import notes and keep track of progress.
 
----
-
-### Features
+## Features
 
 - Full-stack Django application.
 - Connected to a PostgreSQL database to perform data operations.
 - Includes built-in User model along with five additional models (three with a one-to-many relationship and two with a many-to-many relationship).
 - Provides full CRUD data operations.
 - Implements authentication and authorization.
+
+## 📸 Screenshots of the app
 
 ### Landing Page
 
@@ -45,7 +45,15 @@ This app is created with the goal to provide detailed tracking of applications a
 
 ![main-page](main_app/static/images/main_page.png)
 
----
+### My Skills
+
+## ![my-skills](main_app/static/images/my_skills_page.png)
+
+## 📊 ERD
+
+<details>
+
+![ERD](main_app/static/images/erd.png)
 
 ## 💻 Technologies used
 
@@ -56,6 +64,7 @@ This app is created with the goal to provide detailed tracking of applications a
 - Git/Github
 - Javascript
 - HTML/CSS
+- Materialize
 
 ---
 

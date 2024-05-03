@@ -9,7 +9,7 @@
         href="{% url 'application_delete' application.id %}">Delete</a>
     <div>
         {% for tag in application.tags.all %}
-        <div class="skillBox2">
+        <div class="tagBox2">
             <span class="card-title">
                 {{tag.name}}
             </span>
