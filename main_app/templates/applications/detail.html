@@ -1,7 +1,22 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h2 class="pageTitle">Application {{application.id}}</h2>
+<h2 class="pageTitle">Application for {{application.job_title}}</h2>
+<div class="card-active">
+    <a style="margin:10px 10px 30px 0px" class="waves-effect waves-light  teal darken-4 btn-large"
+        href="{% url 'application_update' application.id %}">Edit</a>
+    <a style="margin:10px 10px 30px 0px" class="waves-effect waves-light  lime darken-4 btn-large"
+        href="{% url 'application_delete' application.id %}">Delete</a>
+    <div>
+        {% for tag in application.tags.all %}
+        <div class="skillBox2">
+            <span class="card-title">
+                {{tag.name}}
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 <div class="col s6">
     <table>
         <tbody>
@@ -18,39 +33,10 @@
             </tr>
         </tbody>
     </table>
-    <div class="card-active">
-        <a href="{% url 'application_update' application.id %}">Edit</a>
-        <a href="{% url 'application_delete' application.id %}">Delete</a>
-    </div>
 </div>
-<!-- New Markup Above -->
 </div>
 <div class="col s6">
-    <form action="{% url 'add_action' application.id%}" method="POST">
-        {% csrf_token%}
-        {{ action_form.as_p}}
-        <input type="submit" value="Add action" class="btn blue">
-    </form>
-    <table class="striped">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for action in application.action_set.all %}
-            <tr>
-                <td>{{action.date}}</td>
-                <td>{{action.action}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-<div class="col s6">
-    <p>Your Notes 📝</p>
-    {% if application.note_set.all %}
+    <h3 class="pageTitle">My Notes 📝</h3>
     <div class="row">
         <div class="input-field col s12">
             {% for note in application.note_set.all %}
@@ -58,9 +44,6 @@
             {% endfor %}
         </div>
     </div>
-    {% else %}
-    <p>No notes available.</p>
-    {% endif %}
     <form action="{% url 'add_note' application.id %}" method="POST">
         {% csrf_token %}
         {{ note_form.as_p }}
@@ -70,12 +53,41 @@
                 <label for="id_note">Add a note</label>
             </div>
         </div>
-        <input type="submit" value="Add note" class="btn blue">
+        <input type="submit" value="Add note" class="waves-effect waves-light  teal darken-4 btn btn-large"
+            style="margin:20px 10px 30px 0px;">
     </form>
 </div>
+<div class="col s6">
+    <h3 class="pageTitle">Timeline Tracker 🗓️</h3>
+    <form action="{% url 'add_action' application.id%}" method="POST">
+        {% csrf_token%}
+        {{ action_form.as_p}}
+        <input type="submit" value="Add action" class="waves-effect waves-light  teal darken-4 btn btn-large"
+            style="margin:20px 10px 30px 0px;">
+    </form>
+    <div class="actionPanel">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for action in application.action_set.all %}
+                <tr>
+                    <td>{{action.date}}</td>
+                    <td>{{action.action}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<h2 class="pageTitle">Matching skills</h2>
 <div class="row">
-    <div class="col s6">
-        <h3>Skills related to this application</h3>
+    <div class="col">
         {% for skill in application.skills.all %}
         <div class="skillBox2">
             {{skill.name}}
@@ -83,64 +95,65 @@
         {% endfor%}
     </div>
 </div>
-<h3>Available Skills</h3>
+<h2 class="pageTitle">My Skills 🗂️</h2>
 {% if skills.count %}
 {% for skill in skills.all %}
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">{{skill.name}}</span>
-    </div>
-    <div class="card-action">
-        <form action="{% url 'assoc_skill' application.id skill.id%}" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn">Add</button>
-        </form>
-    </div>
+<div class="skillBoxOutline">
+    {{skill.name}}
+    <form action="{% url 'assoc_skill' application.id skill.id%}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn">Add</button>
+    </form>
 </div>
 {% endfor %}
 {% else %}
 <h5>You have added all your skills</h5>
 {% endif %}
-
-<h5>Tags</h5>
-<div class="row">
-    <div class="col s6">
-        {% for tag in application.tags.all %}
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">
-                    {{tag.name}}
-                </span>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-    <!-- Available toys will come after this line -->
-</div>
 <div class="col s6">
-    <h3>Available Tags</h3>
+    <h2 class="pageTitle">All Tags</h2>
     {% if tags.count %}
     {% for tag in tags.all %}
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">
-                {{tag.name}}
-            </span>
-        </div>
-        <div class="card-action">
-            <form action="{% url 'assoc_tag' application.id tag.id%}" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn">Add</button>
-            </form>
-        </div>
+    <div class="skillBoxOutline">
+        {{tag.name}}
+        <form action="{% url 'assoc_tag' application.id tag.id%}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn">Add</button>
+        </form>
     </div>
     {% endfor %}
     {% else %}
-    <h5>Already used all tags</h5>
+    <h2 class="pageTitle">Already used all tags</h2>
     {% endif %}
 </div>
 
+<style>
+    .btn-large,
+    .waves-button-input {
+        color: white;
+    }
 
+    .actionPanel table tr:nth-child(even) {
+        background-color: rgb(213, 236, 226) !important;
+    }
+
+    .actionPanel table tr:hover {
+        background-color: rgb(188, 219, 205) !important;
+    }
+
+    .actionPanel table {
+        color: #004539;
+    }
+
+    .actionPanel table a {
+        color: #004539;
+        border-bottom: 1px solid #004539;
+    }
+
+    .actionPanel table a:hover {
+        color: #000000;
+        border-bottom: 1px solid #004539;
+    }
+</style>
 
 
 <script>

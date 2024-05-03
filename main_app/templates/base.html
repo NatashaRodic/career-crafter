@@ -29,14 +29,14 @@
                     <ul class=" right">
                         <li><a class="yellow-text text-lighten-5" href="{% url 'about' %}" ">About</a></li>
                     {% if user.is_authenticated %}
-                    <li><a class=" yellow-text text-lighten-5" href=" {% url 'index' %}" ">Application Tracker</a>
+                    <li><a class=" yellow-text text-lighten-5" href=" {% url 'index' %}" ">Application tracker</a>
                     </li>
                     <!-- <li><a href=""  ">Resume Builder</a></li> -->
                         <li><a class="yellow-text text-lighten-5" href="{% url 'skills_create' %}" ">Create a
                             skill</a></li>
-                    <li><a  class=" yellow-text text-lighten-5" href=" {% url 'skills_index' %}" ">Your Skills</a>
+                    <li><a  class=" yellow-text text-lighten-5" href=" {% url 'skills_index' %}" ">My skills</a>
                     </li>
-                    <li><a class=" yellow-text text-lighten-5" href=" {% url 'tags_create' %}" ">Create a Tag</a>
+                    <li><a class=" yellow-text text-lighten-5" href=" {% url 'tags_create' %}" ">Create a tag</a>
                     </li>
                     <li><a class=" yellow-text text-lighten-5" href=" {% url 'logout' %}" ">Log Out</a></li>
                     {% else %}

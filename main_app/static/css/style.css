@@ -76,7 +76,7 @@ img {
     font-size: 24px;
     font-weight: 300;
     color: #a3ffb1;
-    padding: 20px 50px;
+    padding: 10px 20px;
     background-color: #002710;
     border-radius: 100px;
     display: inline-block;
@@ -85,4 +85,25 @@ img {
 
 .skillBox2:hover {
     background-color: #002710;
+}
+
+
+.skillBoxOutline {
+    font-size: 24px;
+    font-weight: 300;
+    color: #002710;
+    border: 1px solid #002710;
+    padding: 20px 30px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 20px;
+}
+
+.skillBoxOutline:hover {
+    background-color: #d3ebdd;
+}
+
+.skillBoxOutline .btn {
+    margin-top: 20px;
+    border-radius: 20px;
 }
